@@ -48,6 +48,6 @@ def my_exec(cmd, globals=None, locals=None, description='source string'):
         except Exception as err:
             error_class = err.__class__.__name__
             detail = err.args[0]
-            cl, exc, tb = exc_info()
+            cl, exc, tb = sys.exc_info()
             line_number = traceback.extract_tb(tb)[-1][1]
             return False, f"Line {line_number} : {detail}"
