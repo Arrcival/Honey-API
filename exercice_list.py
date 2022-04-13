@@ -69,7 +69,7 @@ def exercise10(logs, localMethods):
     result3 = rtr.__call__(5)
     tester.test(8 == result1, f"Waiting for : 8 / Got : {result1}")
     tester.test(27 == result2, f"Waiting for : 27 / Got : {result2}")
-    tester.test(125 == result2, f"Waiting for : 125 / Got : {result3}")
+    tester.test(125 == result3, f"Waiting for : 125 / Got : {result3}")
     return tester
 
 def exercise11(logs, localMethods):
