@@ -27,6 +27,8 @@ input_code = """
 def testingPurposes(x):
     x = x + 2
     print("X : " + str(x))
+print(locals())
+print([1, 2].append([3]))
 """
 
 my_exec(input_code, None, locals())
@@ -40,6 +42,10 @@ def exerciceOne():
         print(err.args[0])
         return False
 
+fruits = ['apple', 'banana', 'cherry']
+fruits.append("orange")
+
 print(exerciceOne())
+print(fruits)
 
 

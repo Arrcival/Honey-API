@@ -106,3 +106,71 @@ def exercise13(logs, localMethods):
     printValue = s.getvalue().split("\n")[0]
     tester.test("" == printValue, f"Waiting for : / Got : {printValue}")
     return tester
+
+def exercise14(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["printFirstCell"]
+    with stdoutIO() as s:
+        result = rtr.__call__([0, 1, 2, 3])
+    printValue = s.getvalue().split("\n")[0]
+    tester.test("0" == printValue, f"Waiting for : 0 / Got : {printValue}")
+    with stdoutIO() as s:
+        result = rtr.__call__([4])
+    printValue = s.getvalue().split("\n")[0]
+    tester.test("4" == printValue, f"Waiting for : 4 / Got : {printValue}")
+    return tester
+
+def exercise15(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["createArray"]
+    with stdoutIO() as s:
+        result = rtr.__call__(1, 2, 3)
+    tester.test([1, 2, 3] == result, f"Waiting for : [1, 2, 3] / Got : {result}")
+    with stdoutIO() as s:
+        result = rtr.__call__("one", "two", "three")
+    tester.test(["one", "two", "three"] == result, f"Waiting for : [\"one\", \"two\", \"three\"] / Got : {result}")
+    return tester
+    
+def exercise16(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["sumArray"]
+    with stdoutIO() as s:
+        result = rtr.__call__([1, 2, 3])
+    tester.test(6 == result, f"Waiting for : 6 / Got : {result}")
+    with stdoutIO() as s:
+        result = rtr.__call__(["a", "b", "c"])
+    tester.test("abc" == result, f"Waiting for : abc / Got : {result}")
+    return tester
+
+def exercise17(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["appendNumber"]
+    with stdoutIO() as s:
+        result = rtr.__call__([1, 2], 3)
+    tester.test([1, 2, 3] == result, f"Waiting for : [1, 2, 3] / Got : {result}")
+    with stdoutIO() as s:
+        result = rtr.__call__(["a", "b"], "c")
+    tester.test(["a", "b", "c"] == result, f"Waiting for : [\"a\", \"b\", \"c\"] / Got : {result}")
+    return tester
+
+def exercise18(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["generateArray"]
+    with stdoutIO() as s:
+        result = rtr.__call__(1)
+    tester.test([1, 1, 1, 1, 1] == result, f"Waiting for : [1, 1, 1, 1, 1] / Got : {result}")
+    with stdoutIO() as s:
+        result = rtr.__call__("a")
+    tester.test(["a", "a", "a", "a", "a"] == result, f"Waiting for : [\"a\", \"a\", \"a\", \"a\", \"a\"] / Got : {result}")
+    return tester
+
+def exercise19(logs, localMethods):
+    tester = Tester()
+    rtr = localMethods["generateArraySize"]
+    with stdoutIO() as s:
+        result = rtr.__call__(3)
+    tester.test([0, 1, 2] == result, f"Waiting for : [0, 1, 2] / Got : {result}")
+    with stdoutIO() as s:
+        result = rtr.__call__(5)
+    tester.test([0, 1, 2, 3, 4] == result, f"Waiting for : [0, 1, 2, 3, 4] / Got : {result}")
+    return tester
